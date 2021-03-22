@@ -11,9 +11,9 @@ public class UpgradesManager : MonoBehaviour
     public BigDouble clickUpgradeBaseCost;
     public BigDouble clickUpgradeCostMult;
 
-    public void StartUpgraddeManager()
+    public void StartUpgradeManager()
     {
-        clickUpgradeName = "Mana per Click";
+        clickUpgradeName = "Mana per charge";
         clickUpgradeBaseCost = 10;
         clickUpgradeCostMult = 1.5;
     }

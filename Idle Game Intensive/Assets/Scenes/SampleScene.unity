@@ -730,7 +730,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -838,7 +838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradesManager: {fileID: 1578135044}
   manaText: {fileID: 2144801629}
-  ManaClickPowerText: {fileID: 1875611400}
+  manaClickPowerText: {fileID: 1875611400}
 --- !u!4 &898112706
 Transform:
   m_ObjectHideFlags: 0
@@ -909,8 +909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UpgradeButton: {fileID: 1217837771}
   LevelText: {fileID: 737492458}
-  CostText: {fileID: 439900463}
-  NameText: {fileID: 1462127448}
+  CostText: {fileID: 1462127448}
+  NameText: {fileID: 439900463}
 --- !u!114 &1217837770
 MonoBehaviour:
   m_ObjectHideFlags: 0

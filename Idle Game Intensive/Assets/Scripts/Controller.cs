@@ -10,7 +10,7 @@ public class Controller : MonoBehaviour
     public Data data;
 
     public TMP_Text manaText;
-    [SerializeField] private TMP_Text ManaClickPowerText;
+    [SerializeField] private TMP_Text manaClickPowerText; 
 
     public BigDouble ClickPower() => 1 + data.clickUpgradeLevel;
     
@@ -18,13 +18,13 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         data = new Data();
-        upgradesManager.StartUpgraddeManager();
+        upgradesManager.StartUpgradeManager();
     }
 
     private void Update()
     {
         manaText.text = data.mana + " Mana";
-        ManaClickPowerText.text = "+" + ClickPower() + " Mana";
+        manaClickPowerText.text = "+" + ClickPower() + " Mana";
 
     }
     public void GenerateMana()
