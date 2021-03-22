@@ -6,7 +6,11 @@ using BreakInfinity;
 
 public class Controller : MonoBehaviour
 {
-    public UpgradesManager upgradesManager;
+    public static Controller instance;
+    private void Awake()
+    {
+        instance = this;
+    }
     public Data data;
 
     public TMP_Text manaText;
