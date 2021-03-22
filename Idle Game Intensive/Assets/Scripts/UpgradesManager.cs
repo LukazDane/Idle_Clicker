@@ -21,7 +21,7 @@ public class UpgradesManager : MonoBehaviour
     public void UpdateClickUpgradeUI()
     {
         clickUpgrade.LevelText.text = controller.data.clickUpgradeLevel.ToString();
-        clickUpgrade.CostText.text = "Cost: " + Cost() + " Mana";
+        clickUpgrade.CostText.text = "Cost: " + Cost().ToString(format: "F2") + " Mana";
         clickUpgrade.NameText.text = "+1 " + clickUpgradeName;
     }
     public BigDouble Cost()
