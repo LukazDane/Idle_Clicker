@@ -18,7 +18,6 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         data = new Data();
-        data.mana = 1;
         upgradesManager.StartUpgraddeManager();
     }
 
