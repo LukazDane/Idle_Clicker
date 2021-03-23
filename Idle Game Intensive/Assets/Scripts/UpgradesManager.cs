@@ -19,14 +19,14 @@ public class UpgradesManager : MonoBehaviour
 
     public BigDouble[] clickUpgradeBaseCost;
     public BigDouble[] clickUpgradeCostMult;
-    public BIgDouble[] clickUpgradesBasePower;
+    public BigDouble[] clickUpgradesBasePower;
 
     public void StartUpgradeManager()
     {
-        clickUpgradeNames = new[] { "Mana Charge +1", "Mana Charge +5", "Mana Charge +10" };
-        clickUpgradeBaseCost = new BigDouble[] { 10, 50, 100 };
-        clickUpgradeCostMult = new BIgDouble[] { 1.25, 1.35, 1.55 };
-        clickUpgradesBasePower = new BIgDouble[] { 1, 5, 10 };
+        clickUpgradeNames = new[] { "Fire bolt +1", "Ice Knife +5", "Acid Spray +10", "Arcane Cannon +25" };
+        clickUpgradeBaseCost = new BigDouble[] { 10, 50, 100, 250 };
+        clickUpgradeCostMult = new BigDouble[] { 1.25, 1.35, 1.55, 2 };
+        clickUpgradesBasePower = new BigDouble[] { 1, 5, 10, 25 };
 
         for (int i = 0; i < Controller.instance.data.clickUpgradeLevel.Count; i++)
         {
@@ -37,6 +37,8 @@ public class UpgradesManager : MonoBehaviour
         clickUpgradesScroll.normalizedPosition = new Vector2(0, 0);
 
         UpdateClickUpgradeUI();
+
+        Methods.UpgradeCheck(ref Controller.instance.data.clickUpgradeLevel, 4);
     }
 
     public void UpdateClickUpgradeUI(int UpgradeID = -1)
@@ -49,24 +51,24 @@ public class UpgradesManager : MonoBehaviour
         void UpdateUi(int ID)
         {
             clickUpgrades[ID].LevelText.text = data.clickUpgradeLevel[ID].ToString();
-            clickUpgrades[ID].CostText.text = $"Cost: {Cost():F2} Mana";
+            clickUpgrades[ID].CostText.text = $"Cost: {ClickUpgradeCost(ID):F2} Mana";
             clickUpgrades[ID].NameText.text = clickUpgradeNames[ID];
 
         }
     }
-    public BigDouble Cost()
+    public BigDouble ClickUpgradeCost(int UpgradeID)
     {
-        return clickUpgradeBaseCost * BigDouble.Pow(clickUpgradeCostMult, Controller.instance.data.clickUpgradeLevel);
+        return clickUpgradeBaseCost[UpgradeID] * BigDouble.Pow(clickUpgradeCostMult[UpgradeID], Controller.instance.data.clickUpgradeLevel[UpgradeID]);
     }
-    public void BuyUpgrade()
+    public void BuyUpgrade(int UpgradeID)
     {
         var data = Controller.instance.data;
-        if (data.mana >= Cost())
+        if (data.mana >= ClickUpgradeCost(UpgradeID))
         {
-            data.mana -= Cost();
-            data.clickUpgradeLevel += 1;
+            data.mana -= ClickUpgradeCost(UpgradeID);
+            data.clickUpgradeLevel[UpgradeID] += 1;
             // do not set upgrade to anything other than += 1 for now, using other increments could cause infinity break error  with future multipliers
         }
-        UpdateClickUpgradeUI();
+        UpdateClickUpgradeUI(UpgradeID);
     }
 }

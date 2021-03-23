@@ -16,7 +16,15 @@ public class Controller : MonoBehaviour
     public TMP_Text manaText;
     [SerializeField] private TMP_Text manaClickPowerText; 
 
-    public BigDouble ClickPower() => 1 + data.clickUpgradeLevel;
+    public BigDouble ClickPower()
+    {
+        BigDouble total = 1;
+        for (int i = 0; i < data.clickUpgradeLevel.Count; i++)
+        {
+            total += UpgradesManager.instance.clickUpgradesBasePower[i] * data.clickUpgradeLevel[i];
+        }
+        return total;
+    }
     
 
     private void Start()

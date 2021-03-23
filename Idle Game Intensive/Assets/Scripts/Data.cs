@@ -9,6 +9,6 @@ public class Data
     public Data()
     {
         mana = 0;
-        clickUpgradeLevel = Methods.CreateList<BigDouble>(capacity: 3);
+        clickUpgradeLevel = Methods.CreateList<BigDouble>(capacity: 4);
     }
 }
