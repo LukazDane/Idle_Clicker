@@ -104,9 +104,9 @@ public class UpgradesManager : MonoBehaviour
         switch (type)
         {
             case "click":
-                return clickUpgradeBaseCost[UpgradeID] * BigDouble.Pow(clickUpgradeCostMult[UpgradeID], data.clickUpgradeLevel[UpgradeID]);
+                return clickUpgradeBaseCost[UpgradeID] * BigDouble.Pow(clickUpgradeCostMult[UpgradeID], (BigDouble)data.clickUpgradeLevel[UpgradeID]);
             case "production":
-                return productionUpgradeBaseCost[UpgradeID] * BigDouble.Pow(productionUpgradeCostMult[UpgradeID], data.productionUpgradeLevel[UpgradeID]);
+                return productionUpgradeBaseCost[UpgradeID] * BigDouble.Pow(productionUpgradeCostMult[UpgradeID], (BigDouble)data.productionUpgradeLevel[UpgradeID]);
         }
         return 0;
     }
