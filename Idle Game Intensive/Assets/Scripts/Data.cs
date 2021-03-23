@@ -5,10 +5,10 @@ using BreakInfinity;
 public class Data
 {
     public BigDouble mana;
-    public BigDouble clickUpgradeLevel;
+    public List<BigDouble> clickUpgradeLevel;
     public Data()
     {
         mana = 0;
-        clickUpgradeLevel = 0;
+        clickUpgradeLevel = Methods.CreateList<BigDouble>(capacity: 3);
     }
 }

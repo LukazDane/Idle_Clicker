@@ -22,7 +22,7 @@ public class Controller : MonoBehaviour
     private void Start()
     {
         data = new Data();
-        upgradesManager.StartUpgradeManager();
+        UpgradesManager.instance.StartUpgradeManager();
     }
 
     private void Update()
