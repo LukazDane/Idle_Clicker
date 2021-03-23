@@ -17,7 +17,14 @@ Objectives:
 - [x] Tertiary Upgrade / Prestige option
   - Completed by creating secondary upgrade button type(+1 per second)
 
-Stretch goals: -[ ] Visual Assets -[ ] Music -[x] Additional click "Upgrade" options - Upgrade options have differing costs, impact, and implementation(active vs passive) -[x] Auto-clicker - Passive upgrades function as "auto-clicker"
+## Stretch goals:
+
+- [ ] Visual Assets
+- [ ] Music
+- [x] Additional click "Upgrade" options
+- Upgrade options have differing costs, impact, and implementation(active vs passive)
+- [x] Auto-clicker
+- Passive upgrades function as "auto-clicker"
 
 # Future Plans:
 
