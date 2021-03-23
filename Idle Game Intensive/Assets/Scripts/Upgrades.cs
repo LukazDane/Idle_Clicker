@@ -12,7 +12,11 @@ public class Upgrades : MonoBehaviour
 
     public void BuyClickUpgrade()
     {
-        UpgradesManager.instance.BuyUpgrade(UpgradeID);
+        UpgradesManager.instance.BuyUpgrade("click", UpgradeID);
+    }
+    public void BuyProductionUpgrade()
+    {
+        UpgradesManager.instance.BuyUpgrade("production", UpgradeID);
     }
 
 

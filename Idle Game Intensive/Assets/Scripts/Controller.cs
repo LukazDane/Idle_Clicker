@@ -15,6 +15,7 @@ public class Controller : MonoBehaviour
 
     public TMP_Text manaText;
     [SerializeField] private TMP_Text manaClickPowerText; 
+    [SerializeField] private TMP_Text manaPerSecondText;
 
     public BigDouble ClickPower()
     {
@@ -22,6 +23,15 @@ public class Controller : MonoBehaviour
         for (int i = 0; i < data.clickUpgradeLevel.Count; i++)
         {
             total += UpgradesManager.instance.clickUpgradesBasePower[i] * data.clickUpgradeLevel[i];
+        }
+        return total;
+    }
+    public BigDouble ManaPerSecond()
+    {
+        BigDouble total = 0;
+        for (int i = 0; i < data.productionUpgradeLevel.Count; i++)
+        {
+            total += UpgradesManager.instance.productionUpgradesBasePower[i] * data.productionUpgradeLevel[i];
         }
         return total;
     }
@@ -35,8 +45,11 @@ public class Controller : MonoBehaviour
 
     private void Update()
     {
-        manaText.text = data.mana + " Mana";
-        manaClickPowerText.text = "+" + ClickPower() + " Mana";
+        manaText.text = $"{data.mana:F2} Mana";
+        manaClickPowerText.text = $"+{ClickPower():F2} Mana";
+        manaPerSecondText.text = $"{ManaPerSecond():F2} /mps";
+
+        data.mana += ManaPerSecond() * Time.deltaTime;
 
     }
     public void GenerateMana()
